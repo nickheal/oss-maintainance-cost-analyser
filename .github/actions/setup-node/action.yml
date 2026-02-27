@@ -1,0 +1,27 @@
+name: "Setup Node with Registry"
+description: "Setup Node.js with pre-configured registry and authentication"
+
+inputs:
+  node-version:
+    description: "Node.js version"
+    required: false
+    default: "24"
+  registry-url:
+    description: "NPM registry URL"
+    required: false
+    default: "https://registry.npmjs.org/"
+  token:
+    description: "Registry authentication token"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: ${{ inputs.registry-url }}
+        cache: "npm"
+
+    - shell: bash
+      run: npm ci
