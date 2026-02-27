@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSS Maintenance Cost Analyser – Budget Your Dependencies</title>
+    <meta name="description" content="Every open source package has a hidden maintenance cost. Measure it. Budget it. Control it.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">OSS Cost</span>
+                    <span class="logo-bracket">]</span>
+                </div>
+                <nav class="nav">
+                    <a href="#concept" class="nav-link">The Concept</a>
+                    <a href="#problem" class="nav-link">The Problem</a>
+                    <a href="#solution" class="nav-link">The Tool</a>
+                    <a href="https://github.com/nickheal/oss-maintainance-cost-analyser" class="nav-link nav-link-cta" target="_blank">GitHub →</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span class="label-dot"></span>
+                    <span>Open Source Reality Check</span>
+                </div>
+                <h1 class="hero-title">
+                    Your dependencies<br>
+                    have a <span class="hero-highlight">price tag</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Every npm package you install comes with an invisible maintenance cost.<br>
+                    Security patches. Version updates. CVE investigations. Breaking changes.<br>
+                    <strong>It's time to budget for it.</strong>
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">40 hours</div>
+                        <div class="stat-label">Average annual maintenance per team</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">23 CVEs</div>
+                        <div class="stat-label">Found in typical project audit</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">46 mins</div>
+                        <div class="stat-label">Per developer per week</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#install" class="btn btn-primary">
+                        <span>Install Now</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-preview">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="code-title">$ npm start -- analyze</div>
+                    </div>
+                    <div class="code-body">
+                        <div class="code-line">
+                            <span class="code-comment">// Your current reality</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-key">Total Dependencies:</span>
+                            <span class="code-value">127</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-key">Annual Maintenance:</span>
+                            <span class="code-value code-warning">156 hours/year</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-key">Risk Distribution:</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-critical">CRITICAL: 3</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-high">HIGH: 12</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-medium">MEDIUM: 45</span>
+                        </div>
+                        <div class="code-line code-indent">
+                            <span class="code-low">LOW: 67</span>
+                        </div>
+                        <div class="code-line code-spacer"></div>
+                        <div class="code-line">
+                            <span class="code-comment">// That's 4 weeks of work</span>
+                        </div>
+                        <div class="code-line">
+                            <span class="code-comment">// NOT building features</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="concept" class="concept">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">The Concept</h2>
+            </div>
+            <div class="concept-content">
+                <div class="concept-main">
+                    <h3 class="concept-headline">Set an OSS Maintenance Budget</h3>
+                    <p class="concept-text">
+                        Open source packages aren't free. They're a trade-off. You gain velocity today,
+                        but commit to ongoing maintenance forever. Every dependency in your package.json
+                        is a recurring subscription—paid in engineering hours.
+                    </p>
+                    <p class="concept-text">
+                        Most teams don't measure this cost. They add packages freely, then wonder why
+                        feature velocity decreases over time. The maintenance burden grows silently,
+                        consuming more hours each quarter.
+                    </p>
+                    <div class="concept-callout">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-content">
+                            <strong>Our philosophy:</strong> Every team should establish an explicit OSS maintenance budget.
+                            For example: "Our team of 5 developers allocates 40 hours per year to OSS maintenance."
+                        </div>
+                    </div>
+                </div>
+                <div class="concept-aside">
+                    <div class="budget-card">
+                        <div class="budget-header">Sample Budget</div>
+                        <div class="budget-body">
+                            <div class="budget-row">
+                                <span>Team Size</span>
+                                <span class="budget-value">5 developers</span>
+                            </div>
+                            <div class="budget-row">
+                                <span>Annual Budget</span>
+                                <span class="budget-value">40 hours</span>
+                            </div>
+                            <div class="budget-row">
+                                <span>Per Developer</span>
+                                <span class="budget-value">8 hours/year</span>
+                            </div>
+                            <div class="budget-row">
+                                <span>Per Week</span>
+                                <span class="budget-value">~10 minutes</span>
+                            </div>
+                            <div class="budget-divider"></div>
+                            <div class="budget-row budget-emphasis">
+                                <span>Time for Features</span>
+                                <span class="budget-value">99.8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">The Hidden Cost</h2>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4L4 10V22L16 28L28 22V10L16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 16L4 10M16 16L28 10M16 16V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem-title">Security Patches</h3>
+                    <p class="problem-text">
+                        Every CVE requires investigation. Is it exploitable? Are we affected?
+                        Can we upgrade safely? Time spent: 2-4 hours per vulnerability.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M26 14L16 24L6 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M26 6L16 16L6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem-title">Version Updates</h3>
+                    <p class="problem-text">
+                        Staying current means regular upgrades. Testing. Fixing breaking changes.
+                        Updating code that relied on old APIs. Compounding across 100+ packages.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V16L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem-title">Technical Lag</h3>
+                    <p class="problem-text">
+                        The longer you wait, the harder it gets. Skip updates for 6 months?
+                        Now you're dealing with major version jumps and accumulated breaking changes.
+                    </p>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4L4 10L16 16L28 10L16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 22L16 28L28 22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 16L16 22L28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="problem-title">Transitive Dependencies</h3>
+                    <p class="problem-text">
+                        Install one package, get 50 more. You're now responsible for maintaining
+                        packages you never explicitly chose. The tree grows exponentially.
+                    </p>
+                </div>
+            </div>
+
+            <div class="problem-equation">
+                <div class="equation-part">
+                    <div class="equation-value">More Packages</div>
+                </div>
+                <div class="equation-operator">=</div>
+                <div class="equation-part">
+                    <div class="equation-value">More Maintenance</div>
+                </div>
+                <div class="equation-operator">=</div>
+                <div class="equation-part equation-emphasis">
+                    <div class="equation-value">Less Time for Features</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-quote">
+                    <div class="quote-mark">"</div>
+                    <blockquote>
+                        This is <strong>NOT</strong> about technical debt.<br>
+                        This is <strong>NOT</strong> about code quality.<br>
+                        This is <strong>NOT</strong> about overall maintenance cost.
+                    </blockquote>
+                    <div class="quote-divider"></div>
+                    <blockquote class="quote-emphasis">
+                        This is about <strong>one specific slice</strong>: the time required
+                        to keep your OSS dependencies secure and up-to-date.
+                    </blockquote>
+                    <div class="quote-footer">
+                        A narrow, measurable cost that compounds over time
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">The Tool</h2>
+            </div>
+
+            <div class="solution-intro">
+                <h3 class="solution-headline">Measure. Budget. Control.</h3>
+                <p class="solution-text">
+                    OSS Maintenance Cost Analyser queries vulnerability databases and package metadata
+                    to calculate the estimated annual maintenance hours for each dependency. It combines
+                    historical CVE frequency, maintenance health, complexity, and technical lag into a
+                    single composite score.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <h4 class="feature-title">Historical CVE Analysis</h4>
+                    <p class="feature-text">
+                        Track how many vulnerabilities each package has had over time.
+                        Packages with frequent CVEs will cost you more in the long run.
+                    </p>
+                    <div class="feature-metric">
+                        <span class="metric-label">Weight:</span>
+                        <span class="metric-value">50%</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <h4 class="feature-title">Maintenance Health</h4>
+                    <p class="feature-text">
+                        Is the package actively maintained? When was the last release?
+                        Abandoned packages become security liabilities.
+                    </p>
+                    <div class="feature-metric">
+                        <span class="metric-label">Weight:</span>
+                        <span class="metric-value">10%</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <h4 class="feature-title">Dependency Complexity</h4>
+                    <p class="feature-text">
+                        More dependencies mean more attack surface and more update cycles.
+                        Simpler packages cost less to maintain.
+                    </p>
+                    <div class="feature-metric">
+                        <span class="metric-label">Weight:</span>
+                        <span class="metric-value">15%</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <h4 class="feature-title">Technical Lag</h4>
+                    <p class="feature-text">
+                        How outdated is your current version? The further behind you fall,
+                        the more expensive it becomes to catch up.
+                    </p>
+                    <div class="feature-metric">
+                        <span class="metric-label">Weight:</span>
+                        <span class="metric-value">15%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="demo-content">
+                <div class="demo-header">
+                    <h3 class="demo-title">See it in action</h3>
+                    <p class="demo-subtitle">Example output from analyzing a typical project</p>
+                </div>
+                <div class="demo-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="terminal-title">terminal</div>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">npm start -- analyze</span>
+                        </div>
+                        <div class="terminal-line terminal-blank"></div>
+                        <div class="terminal-line">
+                            <span class="terminal-output">📊 PROJECT SUMMARY: my-app</span>
+                        </div>
+                        <div class="terminal-line terminal-blank"></div>
+                        <div class="terminal-line">
+                            <span class="terminal-label">Overall Score:</span>
+                            <span class="terminal-value terminal-warning">68/100</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-label">Total Annual Maintenance:</span>
+                            <span class="terminal-value">~45 hours</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-label">Total Known CVEs:</span>
+                            <span class="terminal-value">23</span>
+                        </div>
+                        <div class="terminal-line terminal-blank"></div>
+                        <div class="terminal-line">
+                            <span class="terminal-output">Risk Distribution:</span>
+                        </div>
+                        <div class="terminal-line terminal-indent">
+                            <span class="terminal-risk terminal-low">LOW: 12 packages</span>
+                        </div>
+                        <div class="terminal-line terminal-indent">
+                            <span class="terminal-risk terminal-medium">MEDIUM: 8 packages</span>
+                        </div>
+                        <div class="terminal-line terminal-indent">
+                            <span class="terminal-risk terminal-high">HIGH: 2 packages</span>
+                        </div>
+                        <div class="terminal-line terminal-blank"></div>
+                        <div class="terminal-line">
+                            <span class="terminal-output">⚠️ Highest Risk Packages:</span>
+                        </div>
+                        <div class="terminal-line terminal-indent">
+                            <span class="terminal-package">moment:</span>
+                            <span class="terminal-score terminal-critical">38 - CRITICAL</span>
+                        </div>
+                        <div class="terminal-line terminal-indent">
+                            <span class="terminal-package">lodash:</span>
+                            <span class="terminal-score terminal-high">42 - HIGH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluate Section -->
+    <section class="evaluate">
+        <div class="container">
+            <div class="evaluate-content">
+                <div class="evaluate-header">
+                    <h3 class="evaluate-title">Check before you install</h3>
+                    <p class="evaluate-subtitle">
+                        The best time to control maintenance cost is <em>before</em> you add the package.<br>
+                        Make informed decisions at selection time, not cleanup time.
+                    </p>
+                </div>
+
+                <div class="evaluate-workflow">
+                    <div class="workflow-step">
+                        <div class="workflow-number">1</div>
+                        <div class="workflow-content">
+                            <h4 class="workflow-title">Evaluate candidates</h4>
+                            <p class="workflow-text">
+                                Before choosing between libraries, check their maintenance cost.
+                            </p>
+                            <div class="workflow-code">
+                                <pre><code><span class="code-comment"># Comparing date libraries</span>
+<span class="terminal-prompt">$</span> oss-maintainance-cost check moment
+<span class="terminal-output">Score: </span><span class="terminal-score terminal-critical">38/100 - CRITICAL</span>
+<span class="terminal-output">Est. Maintenance: </span><span class="terminal-value">~12 hours/year</span>
+
+<span class="terminal-prompt">$</span> oss-maintainance-cost check date-fns
+<span class="terminal-output">Score: </span><span class="terminal-score terminal-low">87/100 - LOW</span>
+<span class="terminal-output">Est. Maintenance: </span><span class="terminal-value">~3 hours/year</span>
+
+<span class="code-comment"># Clear winner: date-fns saves you 9 hours/year</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-number">2</div>
+                        <div class="workflow-content">
+                            <h4 class="workflow-title">Check if you're over budget</h4>
+                            <p class="workflow-text">
+                                See if adding this package will push you past your maintenance budget.
+                            </p>
+                            <div class="workflow-example">
+                                <div class="budget-check">
+                                    <div class="budget-check-row">
+                                        <span class="budget-check-label">Current maintenance cost:</span>
+                                        <span class="budget-check-value">45 hours/year</span>
+                                    </div>
+                                    <div class="budget-check-row">
+                                        <span class="budget-check-label">Your budget:</span>
+                                        <span class="budget-check-value">50 hours/year</span>
+                                    </div>
+                                    <div class="budget-check-row">
+                                        <span class="budget-check-label">Remaining capacity:</span>
+                                        <span class="budget-check-value budget-check-capacity">5 hours/year</span>
+                                    </div>
+                                    <div class="budget-check-divider"></div>
+                                    <div class="budget-check-row">
+                                        <span class="budget-check-label">New package cost:</span>
+                                        <span class="budget-check-value budget-check-new">8 hours/year</span>
+                                    </div>
+                                    <div class="budget-check-row budget-check-result">
+                                        <span class="budget-check-label">Decision:</span>
+                                        <span class="budget-check-value budget-check-warning">⚠️ Over budget by 3 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-number">3</div>
+                        <div class="workflow-content">
+                            <h4 class="workflow-title">Make the trade-off</h4>
+                            <p class="workflow-text">
+                                Decide if the value justifies the cost. Your options:
+                            </p>
+                            <ul class="workflow-options">
+                                <li>
+                                    <strong>Remove unused packages</strong> to make room
+                                </li>
+                                <li>
+                                    <strong>Choose a lower-cost alternative</strong> with similar features
+                                </li>
+                                <li>
+                                    <strong>Build it yourself</strong> if the feature is simple
+                                </li>
+                                <li>
+                                    <strong>Increase your budget</strong> and accept less feature velocity
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evaluate-callout">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-text">
+                        <strong>Prevention beats cleanup:</strong> It's far easier to avoid adding high-cost packages
+                        than to remove them later when they're deeply integrated into your codebase.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section id="install" class="install">
+        <div class="container">
+            <div class="install-content">
+                <h3 class="install-title">Start budgeting your dependencies</h3>
+                <div class="install-tabs">
+                    <button class="install-tab active" data-tab="npm">npm</button>
+                    <button class="install-tab" data-tab="usage">Usage</button>
+                    <button class="install-tab" data-tab="ci">CI/CD</button>
+                </div>
+                <div class="install-code-container">
+                    <div class="install-code active" data-content="npm">
+                        <pre><code><span class="code-comment"># Install globally</span>
+npm install -g oss-maintainance-cost-analyser
+
+<span class="code-comment"># Or run directly</span>
+npx oss-maintainance-cost-analyser analyze</code></pre>
+                    </div>
+                    <div class="install-code" data-content="usage">
+                        <pre><code><span class="code-comment"># Analyze your project</span>
+oss-maintainance-cost analyze
+
+<span class="code-comment"># Check a single package</span>
+oss-maintainance-cost check lodash
+
+<span class="code-comment"># Save results</span>
+oss-maintainance-cost analyze --output report.json</code></pre>
+                    </div>
+                    <div class="install-code" data-content="ci">
+                        <pre><code><span class="code-comment"># GitHub Actions example</span>
+- name: Check OSS budget
+  run: |
+    npx oss-maintainance-cost-analyser analyze
+  <span class="code-comment"># Fails if critical/high risk packages detected</span></code></pre>
+                    </div>
+                </div>
+                <div class="install-actions">
+                    <a href="https://github.com/nickheal/oss-maintainance-cost-analyser" class="btn btn-primary" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+                    <a href="https://www.npmjs.com/package/oss-maintainance-cost-analyser" class="btn btn-secondary" target="_blank">
+                        <span>npm Package</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-logo">
+                        <span class="logo-bracket">[</span>
+                        <span class="logo-text">OSS Cost</span>
+                        <span class="logo-bracket">]</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Measure what matters. Budget your dependencies.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <a href="https://github.com/nickheal/oss-maintainance-cost-analyser#readme" class="footer-link">Documentation</a>
+                        <a href="https://github.com/nickheal/oss-maintainance-cost-analyser/blob/main/QUICKSTART.md" class="footer-link">Quick Start</a>
+                        <a href="https://github.com/nickheal/oss-maintainance-cost-analyser/blob/main/DEVELOPMENT.md" class="footer-link">Development</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Community</h4>
+                        <a href="https://github.com/nickheal/oss-maintainance-cost-analyser" class="footer-link">GitHub</a>
+                        <a href="https://www.npmjs.com/package/oss-maintainance-cost-analyser" class="footer-link">npm</a>
+                        <a href="https://github.com/nickheal/oss-maintainance-cost-analyser/issues" class="footer-link">Issues</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    Built to help teams make informed decisions about OSS dependencies.
+                </p>
+                <p class="footer-credit">
+                    MIT License • Free and Open Source
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
