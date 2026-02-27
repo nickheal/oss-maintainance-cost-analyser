@@ -2,6 +2,9 @@
   "name": "oss-maintainance-cost-analyser",
   "version": "1.0.1",
   "description": "Analyze npm dependencies to predict maintenance cost and future vulnerability risk",
+  "repository": {
+    "url": "https://github.com/nickheal/oss-maintainance-cost-analyser"
+  },
   "main": "src/index.js",
   "type": "module",
   "bin": {
